@@ -1,0 +1,19 @@
+# Running this node application of node version 14
+FROM node:14
+
+# Moving to the working directory /app
+WORKDIR /app
+
+# Copying the package.json into the working app directory
+
+COPY package.json .
+
+run npm install
+
+# This is to copy the rest of the root folder files
+copy . .
+
+# Node creates a web server listening for incoming requests on port 3000
+EXPOSE 3000
+
+CMD ["node", "app.mjs"]
